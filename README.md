@@ -70,3 +70,57 @@ public class Main {
         m.exibirDetalhes();
     }
 }
+
+
+
+
+# Leandro-atividade-JAVA 2
+
+
+interface FiguraPlana {
+    double calcularArea();
+    double calcularPerimetro();
+}
+
+interface FiguraEspacial {
+    double calcularVolume();
+}
+
+abstract class Figura {
+    public abstract void exibirDetalhes();
+}
+
+class Circulo extends Figura implements FiguraPlana {
+    private double r;
+    public Circulo(double r) { this.r = r; }
+
+    public double calcularArea() { return Math.PI * r * r; }
+    public double calcularPerimetro() { return 2 * Math.PI * r; }
+
+    public void exibirDetalhes() {
+        System.out.println("Círculo - Área: " + calcularArea() + " | Perímetro: " + calcularPerimetro());
+    }
+}
+
+class Retangulo extends Figura implements FiguraPlana {
+    private double l, h;
+    public Retangulo(double l, double h) { this.l = l; this.h = h; }
+
+    public double calcularArea() { return l * h; }
+    public double calcularPerimetro() { return 2 * (l + h); }
+
+    public void exibirDetalhes() {
+        System.out.println("Retângulo - Área: " + calcularArea() + " | Perímetro: " + calcularPerimetro());
+    }
+}
+
+class Triangulo extends Figura implements FiguraPlana {
+    private double a, b, c;
+    public Triangulo(double a, double b, double c) { this.a = a; this.b = b; this.c = c; }
+
+    public double calcularArea() {
+        double s = (a + b + c) / 2;
+        return Math.sqrt(s * (s - a) * (s - b) * (s - c));
+    }
+
+    public double calcularPerimetro() { return a + b
